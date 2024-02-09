@@ -1,0 +1,18 @@
+# netlify.toml
+[dev]
+  command = "npm run dev"
+  targetPort = 8000
+  publish = "."
+
+[build]
+  command = "npm run build"
+  functions = "netlify/functions"
+  publish = "public"
+
+[context.production.environment]
+  GATSBY_ENV = "prod"
+
+# Branch deploy context:
+# (context.<your branch name here>.environment is the pattern if we want new branches)
+[context.stage.environment]
+  GATSBY_ENV = "stage"
